@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #f0f0f0;
+  color: #000;
+  padding: 20px;
+}
+
+body.dark-mode {
+  background-color: #181818;
+  color: #fff;
+}
+
+h1, p {
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .container {
+  background: #333;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: rgb(26, 26, 91);
+  background: -moz-linear-gradient(90deg, rgba(26, 26, 91, 1) 0%, rgba(53, 57, 180, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(26, 26, 91, 1) 0%, rgba(53, 57, 180, 1) 100%);
+  background: linear-gradient(90deg, rgba(26, 26, 91, 1) 0%, rgba(53, 57, 180, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a1a5b", endColorstr="#3539b4", GradientType=1);
+  color: #fff;
+  border: solid;
+  border-color: #904fc4;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button:hover {
+  background: rgb(35, 35, 102);
+  background: -moz-linear-gradient(90deg, rgba(35, 35, 102, 1) 0%, rgba(70, 74, 222, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(35, 35, 102, 1) 0%, rgba(70, 74, 222, 1) 100%);
+  background: linear-gradient(90deg, rgba(35, 35, 102, 1) 0%, rgba(70, 74, 222, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#232366", endColorstr="#464ade", GradientType=1);
+}
+
+.control {
+  font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+  padding-top: 3px;
+  font-size: 16px;
+}
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.control_indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #c0c0c0;
+  border: 0px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.control:hover input~.control_indicator,
+.control input:focus~.control_indicator {
+  background: #cccccc;
+}
+
+.control input:checked~.control_indicator {
+  background: #772ac0;
+}
+
+.control:hover input:not([disabled]):checked~.control_indicator,
+.control input:checked:focus~.control_indicator {
+  background: #591c93;
+}
+
+.control input:disabled~.control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.control_indicator:after {
+  box-sizing: unset;
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.control input:checked~.control_indicator:after {
+  display: block;
+}
+
+.control-checkbox .control_indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.control-checkbox input:disabled~.control_indicator:after {
+  border-color: #7b7b7b;
+}
+
+.control-checkbox .control_indicator::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-left: -1.3rem;
+  margin-top: -1.3rem;
+  background: #932ac0;
+  border-radius: 3rem;
+  opacity: 0.4;
+  z-index: 99999;
+  transform: scale(0);
+}
+
+@keyframes s-ripple {
+  0% {
+    transform: scale(0);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes s-ripple-dup {
+  0% {
+    transform: scale(0);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.control-checkbox input+.control_indicator::before {
+  animation: s-ripple 250ms ease-out;
+}
+
+.control-checkbox input:checked+.control_indicator::before {
+  animation-name: s-ripple-dup;
+}
+
+#darkModeToggle {
+  margin-right: auto;
+
+  background: #333;
+  width: 32px;
+  height: 32px;
+  padding: 30px;
+  background-image: url('img/sun.svg');
+
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  border: none;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+}
+
+body.dark-mode #darkModeToggle {
+  color: #000;
+  background-image: url('img/moon.svg');
+
+}
+
+#output {
+  margin-top: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#output p {
+    text-align: left;
+}
+
+body.dark-mode #output {
+  background: #333;
+}
+
+a {
+  color: #b77af0;
+}
+
+a:hover {
+  color: #6f4596;
+}
+
+.select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.select select {
+  font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 13px 15px;
+  outline: 0;
+  border: 3px solid #aa7dd3;
+  border-radius: 11px;
+  background: #401853;
+  color: #ffffff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.select select::-ms-expand {
+  display: none;
+}
+
+.select select:hover,
+.select select:focus {
+  color: #ffffff;
+  background: #703197;
+}
+
+.select select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.select_arrow {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  width: 0px;
+  height: 0px;
+  border: solid #be85e2;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.select select:hover~.select_arrow,
+.select select:focus~.select_arrow {
+  border-color: #c69cec;
+}
+
+.select select:disabled~.select_arrow {
+  border-top-color: #cccccc;
+}
