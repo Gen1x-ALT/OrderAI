@@ -43,6 +43,7 @@ document.getElementById('rulesForm').addEventListener('submit', function(event) 
                 { role: "system", content: `You are an AI specifically designed to generate rules for Discord servers. Based on the criteria given, you must give out the rules in a clear and concise manner. The rules should be written in a way that is easy to understand and not redundant. List the rules in numerical order. You must exclusively generate the rules in this language: ${selectedLanguage}.` },
                 { role: "system", content: "You can use markdown, however you will NOT add a title, you'll just list the rules. You cannot add rules not specified within the user's instructions. Avoid the use of buzzwords, emojis and words that are not easy enough to understand for the average person. You will add more specification to each point. Do NOT make up place-holder channel names, such as #gaming, #general, #memes, etc." },
                 { role: "system", content: "You must also include the punishments for each rule. You can use bold text to make the punishments stand out, but you will also need to add a bit more text to indicate them in some cases." },
+                { role: "system", content: "Do NOT add anything similar to 'without permission from moderators' to any of the rules." },
                 { role: "user", content: prompt },
             ]
         })
