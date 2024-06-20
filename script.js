@@ -91,7 +91,7 @@ document.getElementById('rulesForm').addEventListener('submit', function(event) 
     const styleSelect = document.getElementById('style');
     const selectedStyle = styleSelect.value || 'Formal';
 
-    const prompt = `Generate the following Discord Server rules in ${selectedLanguage}, using the ${selectedStyle} style, while adding specific text inside this point explaining what it means: Follow Discord's Terms of Service (link to https://discord.com/terms using markdown as well), ${selectedRules.join(', ')}`;
+    const prompt = `Generate the following Discord Server rules in ${selectedLanguage}, using the ${selectedStyle} style, while adding specific text inside this point explaining what it means: Follow Discord's Terms of Service (link to https://discord.com/terms using markdown as well, punishment is a ban), ${selectedRules.join(', ')}`;
 
     console.log(prompt);
 
