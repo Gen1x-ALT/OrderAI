@@ -50,16 +50,28 @@ document.getElementById('rulesForm').addEventListener('submit', function(event) 
         .then(response => response.json())
         .then(data => {
             const result = data.choices[0].message.content;
-            outputDiv.innerHTML = marked.parse(result);
+
+            const copyButton = document.createElement('button');
+            copyButton.textContent = 'Copy Markdown';
+            copyButton.addEventListener('click', function() {
+                navigator.clipboard.writeText(result).then(() => {
+                    alert('Markdown copied to clipboard!');
+                }).catch(err => {
+                    console.error('Error copying markdown:', err);
+                });
+            });
+
+            outputDiv.innerHTML = ''; 
+            outputDiv.appendChild(copyButton); 
+
+            const markdownContent = document.createElement('div');
+            markdownContent.innerHTML = marked.parse(result);
+            outputDiv.appendChild(markdownContent); 
         })
         .catch(error => {
             console.error('Error:', error);
             outputDiv.textContent = 'An error occurred while generating the rules.';
         })
-        .finally(() => {
-
-            outputDiv.removeChild(loaderContainer);
-        });
 });
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

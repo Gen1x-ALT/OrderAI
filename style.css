@@ -355,7 +355,7 @@ a:hover {
 }
 
 .loader:after {
-  color: #7c17ab;
+  color: #a443d0;
   transform: rotateY(70deg);
   animation-delay: .4s;
 }
