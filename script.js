@@ -11,7 +11,7 @@ function stylize(input) {
     return capitalizedParts.join(' ');
 }
 
-fetch('https://reverse.mubi.tech/v1/models')
+fetch('https://proxy.mubilop.tech/v1/models')
     .then(response => response.json())
     .then(data => {
         const dropdown = document.getElementById('model');
