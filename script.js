@@ -99,7 +99,7 @@ document.getElementById('rulesForm').addEventListener('submit', function(event) 
     outputDiv.appendChild(loaderContainer);
     outputDiv.removeAttribute('hidden');
 
-    fetch("https://reverse.mubi.tech/v1/chat/completions", {
+    fetch("https://proxy.mubilop.tech/v1/chat/completions", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
